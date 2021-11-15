@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="594.0" prefWidth="1210.0" style="-fx-background-color: RGB(0, 128, 128);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReportFormController">
+   <children>
+      <Label layoutX="451.0" layoutY="63.0" prefHeight="30.0" prefWidth="254.0" text="Report" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT" size="63.0" />
+         </font>
+      </Label>
+      <Button fx:id="ItemRecordbtn" layoutX="168.0" layoutY="221.0" mnemonicParsing="false" onAction="#GenarateDianamicReportOnAction" prefHeight="39.0" prefWidth="157.0" text="Item Record">
+         <font>
+            <Font name="Arial Narrow Bold" size="20.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="220.0" fitWidth="225.0" layoutX="775.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/Rule.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="162.0" layoutY="330.0" mnemonicParsing="false" onAction="#ReturnOrdersOnAction" prefHeight="39.0" prefWidth="157.0" text="Return  Orders">
+         <font>
+            <Font name="Arial Narrow Bold" size="21.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

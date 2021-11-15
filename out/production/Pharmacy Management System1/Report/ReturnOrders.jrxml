@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2020-10-09T00:26:26 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReturnOrders" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c9aedc8a-e2ce-4844-baa5-7899a320c0bc">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<!--<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Pharamacy Data Adapter "/>-->
+	<queryString language="SQL">
+		<![CDATA[Select *  From  ReturnOrders]]>
+	</queryString>
+	<field name="OrderID" class="java.lang.String"/>
+	<field name="ItemCode" class="java.lang.String"/>
+	<field name="Date" class="java.lang.String"/>
+	<field name="Descrption" class="java.lang.String"/>
+	<group name="Date">
+		<groupExpression><![CDATA[$F{Date}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="180" y="20" width="250" height="30" forecolor="#3AB050" uuid="a1c45ae0-4e04-4241-b20a-b176ede8b0d4"/>
+				<textElement>
+					<font fontName="Arial Black" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Return  Orders  Report]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="30" y="20" width="100" height="30" uuid="ab4b450b-2302-4520-aaa3-aa6742418d85"/>
+				<textElement>
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm">
+				<reportElement x="475" y="24" width="100" height="30" uuid="2d5b532b-cb79-4dc0-b945-a8377c466211"/>
+				<textElement>
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="68" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="38" width="100" height="30" uuid="6b6c3c09-448f-42d5-b949-f9f5ce568ce7"/>
+				<textElement>
+					<font fontName="Arial Black" size="14"/>
+				</textElement>
+				<text><![CDATA[OrderID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="38" width="100" height="30" uuid="ed3e9743-aca6-42c8-8a76-76b18d4606ef"/>
+				<textElement>
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[ItemCode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="38" width="100" height="30" uuid="e082f449-7d73-47a7-a8a5-2a4b38f3e0e1"/>
+				<textElement>
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="445" y="38" width="100" height="30" uuid="46206213-75f9-4dd8-95c7-ef087329a664"/>
+				<textElement>
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[Descrption]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="44" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="0" width="100" height="30" uuid="95242ffb-7c3d-4992-9f22-5e2b5209016c"/>
+				<textFieldExpression><![CDATA[$F{OrderID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="0" width="100" height="30" uuid="c2d7dc38-c41e-4438-b753-37b342086bcb"/>
+				<textFieldExpression><![CDATA[$F{ItemCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="0" width="100" height="30" uuid="c2ba1c95-5a4d-4185-878c-973703bc2de2"/>
+				<textFieldExpression><![CDATA[$F{Date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="10" width="100" height="30" uuid="75b6936e-9f37-4aa3-ba26-fe279f9e4abd"/>
+				<textFieldExpression><![CDATA[$F{Descrption}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

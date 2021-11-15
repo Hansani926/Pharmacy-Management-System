@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2020-10-09T23:34:00 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PrintBill" pageWidth="377" pageHeight="442" columnWidth="337" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5af044de-cc4e-4541-83b8-405c81b77282">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	--><property name="com.jaspersoft.studio.data.defaultdataadapter" value="Pharamacy Data Adapter "/>-->
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<parameter name="ItemCode" class="java.lang.String"/>
+	<parameter name="qty" class="java.lang.String"/>
+	<parameter name="UnitPrice" class="java.lang.String"/>
+	<parameter name="Amount" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[Select  OrderDetail.OrderID,OrderDetail.ItemCode,OrderDetail.qty,OrderDetail.Amount,OrderDetail.PaymentType,Orders.OrderDate,Orders.CID,Item.Description,Item.Qty,Item.UnitPrice,Item.CategoryID
+From OrderDetail
+INNER JOIN Orders ON OrderDetail.OrderID=Orders.OrderID
+INNER JOIN Item ON OrderDetail.ItemCode=Item.ItemCode
+ORDER BY  OrderDetail.orderID]]>
+	</queryString>
+	<field name="OrderID" class="java.lang.String"/>
+	<field name="ItemCode" class="java.lang.String"/>
+	<field name="qty" class="java.lang.Integer"/>
+	<field name="Amount" class="java.lang.Double"/>
+	<field name="PaymentType" class="java.lang.String"/>
+	<field name="OrderDate" class="java.lang.String"/>
+	<field name="CID" class="java.lang.String"/>
+	<field name="Description" class="java.lang.String"/>
+	<field name="Qty" class="java.lang.Integer"/>
+	<field name="UnitPrice" class="java.lang.Double"/>
+	<field name="CategoryID" class="java.lang.String"/>
+	<group name="OrderID">
+		<groupExpression><![CDATA[$F{OrderID}]]></groupExpression>
+	</group>
+	<group name="ItemCode">
+		<groupExpression><![CDATA[$F{ItemCode}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="160" splitType="Stretch">
+			<staticText>
+				<reportElement x="120" y="0" width="140" height="30" forecolor="#0C0CA8" uuid="3aacdfe5-c26c-4ea5-b72f-303cd5d0ddef"/>
+				<textElement>
+					<font fontName="Stencil" size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Parmacy ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="30" width="280" height="30" uuid="ee96d502-6160-4b79-a87c-0ba825fdcc29"/>
+				<textElement>
+					<font fontName="Serif" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Akurassa  RD   Yakkalamulla]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="135" y="60" width="100" height="30" uuid="536d19a5-8f4a-4dfe-b030-e4917080385c"/>
+				<jr:RoyalMailCustomer xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<jr:codeExpression><![CDATA["123456789"]]></jr:codeExpression>
+				</jr:RoyalMailCustomer>
+			</componentElement>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="90" y="100" width="100" height="30" uuid="fde5d965-0568-4aff-b9de-5a3593928d45"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm">
+				<reportElement x="90" y="130" width="100" height="30" uuid="2ccb92db-1ec7-4ebd-a156-1d008d04331d"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-10" y="100" width="100" height="30" uuid="7c4d36d1-faed-4475-ace4-ca7719c39153"/>
+				<textElement>
+					<font fontName="Arial Black" size="14"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="130" width="100" height="30" uuid="6d28c3d7-2dc8-45e6-976f-9706fa25a39d"/>
+				<textElement>
+					<font fontName="Arial Black" size="14"/>
+				</textElement>
+				<text><![CDATA[Time]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement x="-10" y="16" width="90" height="30" uuid="51f2c1ae-9369-44f9-bf27-4d825950b38d"/>
+				<textElement>
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[Item Code]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="-10" y="47" width="90" height="30" uuid="9ff47e35-a19a-49be-83ad-ee6acb5b5cab"/>
+				<textFieldExpression><![CDATA[$P{ItemCode}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="100" y="16" width="60" height="26" uuid="0c3aa4b1-c314-488e-beb1-cb6a6f8c2cc1"/>
+				<textElement>
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[Qty]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="46" width="60" height="30" uuid="e48ae837-8cd9-4c03-8b2e-7cea0b3f11c6"/>
+				<textFieldExpression><![CDATA[$P{qty}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="180" y="15" width="80" height="30" uuid="7555ac0f-b767-4bae-819b-b6f1f995a860"/>
+				<textElement>
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[UnitPrice]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="180" y="50" width="80" height="30" uuid="39d20a3d-2ed6-4eb9-961d-25a7109f66c0"/>
+				<textFieldExpression><![CDATA[$P{UnitPrice}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="271" y="17" width="81" height="30" uuid="baf9c137-e659-4195-bb0b-79dd63fc3053"/>
+				<textElement>
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="270" y="50" width="82" height="30" uuid="9f2fbd0f-0674-437f-92e4-91c7005afb38"/>
+				<textFieldExpression><![CDATA[$P{Amount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="0" width="190" height="30" uuid="ac171dd6-cd04-4607-ba19-6a1b7f731383"/>
+				<textElement>
+					<font fontName="Baskerville Old Face" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Thank You Come Again]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
